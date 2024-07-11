@@ -4,8 +4,6 @@ from pathlib import Path
 from typing import List
 import io
 
-import dotenv
-from pydantic import BaseModel
 import PyPDF2
 import fitz  # PyMuPDF
 
@@ -13,20 +11,7 @@ from google.api_core.client_options import ClientOptions
 from google.cloud import documentai
 from google.cloud.documentai_v1 import Document
 
-dotenv.load_dotenv()
-
-
-class Block(BaseModel):
-    vertices: List[tuple[float, float]] = []
-    text: str
-
-
-class Page(BaseModel):
-    blocks: List[Block]
-
-
-class ParsedDocument(BaseModel):
-    pages: List[Page]
+from src.schemas import Block, Page, ParsedDocument
 
 
 class DocumentParser:
@@ -221,7 +206,7 @@ async def main():
     input_pdf_path = Path("data/inpatient_record.pdf")
     parsed_document = await document_ai.process_document(input_pdf_path)
 
-    # Create annotated PDF -> annotator.annotate_block(...) might be useful to you
+    # Create annotated PDF -> annotator.draw_block(...) might be useful to you
     output_pdf_path = Path("data/output.pdf")
     annotator = PDFAnnotator(input_pdf_path)
     annotator.annotate_document(parsed_document)
