@@ -43,6 +43,8 @@ OPENAI_API_KEY=your_openai_api_key_here
 
 ### Command Line
 
+Note  that I chose to keep PDF processing and question answering as two separate workflows. This allows the use of pdf processing independent of the question answering system. With this, the question answering system processes the PDF. This can easily be reworked if, for example, it would be preferred to have quesiton answering take the path to parsed PDF.
+
 First, let's look at how to use the system from the command line:
 
 ```bash
@@ -871,8 +873,8 @@ When the character length of `full_text` is less than the `SHORT_DOC_THRESHOLD`,
 - Index: I would go directly to a cloud-based solution rather than local index (FAISS)
 - Evaluation: I would add an evaluation step at the end of the process which could be used to trigger regeneration of the response based on scores.
 - Store prompts as YAML.
+- Consider preferences for arguments (question answering taking in PDF or parsed PDF).
+- Currently, the output files store as the same name as the input file with the extension changed. In the assignemnt, 'output' was mentioned as a file name. If this is preferred, this can easily be changed.
 
 
-```python
 
-```
