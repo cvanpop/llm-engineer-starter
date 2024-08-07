@@ -43,7 +43,7 @@ OPENAI_API_KEY=your_openai_api_key_here
 
 ### Command Line
 
-Note  that I chose to keep PDF processing and question answering as two separate workflows. This allows the use of pdf processing independent of the question answering system. With this, the question answering system processes the PDF. This can easily be reworked if, for example, it would be preferred to have quesiton answering take the path to parsed PDF.
+Note  that I chose to keep PDF processing and question answering as two separate workflows. This allows the use of PDF processing independent of the question answering system. With this, the question answering system processes the PDF. This can easily be reworked if, for example, it would be preferred to have question answering take the path to parsed PDF.
 
 First, let's look at how to use the system from the command line:
 
@@ -62,6 +62,7 @@ The `--k` parameter determines how many chunks of text to retrieve when answerin
 
 ### Notebook
 
+Note  that I chose to keep PDF processing and question answering as two separate workflows. This allows the use of PDF processing independent of the question answering system. With this, the question answering system processes the PDF. This can easily be reworked if, for example, it would be preferred to have question answering take the path to parsed PDF.
 
 Within a notebook, you can run the system as follows:
 
