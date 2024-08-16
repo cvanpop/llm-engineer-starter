@@ -90,7 +90,7 @@ from submission import process_and_save_json, process_and_answer_question
 # Example usage in Jupyter notebook
 pdf_path = "data/inpatient_record.pdf"
 
-# To process the PDF and save as JSON
+# Process a PDF and save its content as .json and optionally .txt
 json_output = await process_and_save_json(pdf_path)
 
 # To process the PDF and save as JSON
